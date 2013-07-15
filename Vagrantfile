@@ -21,6 +21,8 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 80, host: 4567
   config.vm.network :forwarded_port, guest: 443, host: 4568
   config.vm.network :forwarded_port, guest: 3306, host: 4569
+  config.vm.network :forwarded_port, guest: 8080, host: 4570
+
 
 
 
@@ -92,6 +94,11 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "apache2"
     chef.add_recipe "php"
     chef.add_recipe "mysql"
+    chef.add_recipe "nodejs"
+    chef.add_recipe "java"
+    chef.add_recipe "liquibase"
+    chef.add_recipe "git"
+
     chef.json = {
         "mysql" => {
           "server_root_password" => "iloverandompasswordsbutthiswilldo",

@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "base"
   config.vm.provision :shell, :path => "bootstrap.sh"
 
+  
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
@@ -111,7 +112,8 @@ Vagrant.configure("2") do |config|
   #   # You may also specify custom JSON attributes:
   #   chef.json = { :mysql_password => "foo" }
   end
-
+  
+  
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
   #

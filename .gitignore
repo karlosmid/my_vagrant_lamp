@@ -1,3 +1,4 @@
 .vagrant
 bopsky
 *.swp
+*.jar

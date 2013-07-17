@@ -5,6 +5,8 @@ ln -fs /vagrant/bopsky /var/www
 sudo touch /etc/httpd/conf.d/default-documentroot
 sudo chmod o+w  /etc/httpd/conf.d/default-documentroot
 sudo echo 'DocumentRoot /var/www' > /etc/httpd/conf.d/default-documentroot
+#mode_rewrite
+#http://www.lavluda.com/2007/07/15/how-to-enable-mod_rewrite-in-apache22-debian/
 #security down, so do not expose this VM to outher world!
 sudo service iptables stop
 #jenkins install, because chef cookbook failed!

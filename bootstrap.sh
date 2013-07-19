@@ -38,5 +38,5 @@ sudo chmod u+x /opt/liquibase-2.0.4/liquibase
 sudo dos2unix /opt/liquibase-2.0.4/liquibase
 sudo ln -sf /opt/liquibase-2.0.4/liquibase /usr/bin/liquibase
 echo 'you need to have mysql jdbc driver in my_vagrant_lamp'
-#database
-echo 'in /etc/my.cnf edit bind-address=127.0.0.1 and after that restart mysqld'
+sudo pear config-set auto_discover 1
+sudo pear install pear.phpqatools.org/phpqatools pear.netpirates.net/phpDox

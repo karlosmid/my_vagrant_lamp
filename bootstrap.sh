@@ -18,6 +18,7 @@ wget http://services.gradle.org/distributions/gradle-1.6-all.zip -nv -nc
 unzip -of gradle-1.6-all.zip
 #xvfb
 sudo yum -y install xorg-x11-server-Xvfb
+sudo yum --y install php-mysql
 chmod o+x /home/vagrant
 #java
 sudo ln -sf /usr/lib/jvm/jdk1.7.0_25/bin/java /usr/bin/java
@@ -38,5 +39,5 @@ sudo chmod u+x /opt/liquibase-2.0.4/liquibase
 sudo dos2unix /opt/liquibase-2.0.4/liquibase
 sudo ln -sf /opt/liquibase-2.0.4/liquibase /usr/bin/liquibase
 echo 'you need to have mysql jdbc driver in my_vagrant_lamp'
-sudo pear config-set auto_discover 1
-sudo pear install pear.phpqatools.org/phpqatools pear.netpirates.net/phpDox
+#sudo pear config-set auto_discover 1
+#sudo pear install pear.phpqatools.org/phpqatools pear.netpirates.net/phpDox

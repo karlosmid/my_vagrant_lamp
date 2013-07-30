@@ -2,9 +2,9 @@
 #deploy bopsky php codebase to apache2
 rm -rf /var/www
 ln -fs /vagrant/bopsky /var/www
-sudo touch /etc/httpd/conf.d/default-documentroot
-sudo chmod o+w  /etc/httpd/conf.d/default-documentroot
-sudo echo 'DocumentRoot /var/www' > /etc/httpd/conf.d/default-documentroot
+sudo touch /etc/httpd/sites-enabled/default
+sudo chmod o+w /etc/httpd/sites-enabled/default
+sudo sed 's/AllowOverride None/AllowOverride all/g' /etc/httpd/sites-available/default > /etc/httpd/sites-enabled/default
 #mode_rewrite
 #http://www.lavluda.com/2007/07/15/how-to-enable-mod_rewrite-in-apache22-debian/
 #security down, so do not expose this VM to outher world!
@@ -19,10 +19,11 @@ unzip -of gradle-1.6-all.zip
 #xvfb
 sudo yum -y install xorg-x11-server-Xvfb
 sudo yum --y install php-mysql
+#/etc/php.ini set timezone="Europe/Zagreb"
 chmod o+x /home/vagrant
 #java
 sudo ln -sf /usr/lib/jvm/jdk1.7.0_25/bin/java /usr/bin/java
-sudo ln -sf /home/vagrant/node_modules/requirejs/bin/r.js /usr/bin/r.js
+sudo ln -sf /home/vagrant/.npm/requirejs/2.1.8/package/bin/r.js /usr/bin/r.js
 sudo ln -sf /home/vagrant/node_modules/phantomjs/bin/phantomjs /usr/bin/phantomjs
 sudo ln -sf /usr/local/bin/node /usr/bin/nodesudo
 sudo ln -sf /home/vagrant/node_modules/jshint/bin/jshint /usr/bin/jshint

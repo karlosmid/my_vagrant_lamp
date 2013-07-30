@@ -60,6 +60,7 @@ default['php']['url'] = 'http://us.php.net/distributions'
 default['php']['version'] = '5.4.15'
 default['php']['checksum'] = '94e92973c996cf8deabafe0ba19b23d48a79d6e64592a5bf4ea63036eec77c3c'
 default['php']['prefix_dir'] = '/usr/local'
+default['php']['timezone'] = 'Europe/Zagreb'
 
 default['php']['configure_options'] = %W{--prefix=#{php['prefix_dir']}
                                           --with-libdir=#{lib_dir}

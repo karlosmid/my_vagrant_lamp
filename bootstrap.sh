@@ -8,7 +8,12 @@ sudo sed 's/AllowOverride None/AllowOverride all/g' /etc/httpd/sites-available/d
 #mode_rewrite
 #http://www.lavluda.com/2007/07/15/how-to-enable-mod_rewrite-in-apache22-debian/
 #security down, so do not expose this VM to outher world!
-sudo service iptables stop
+sudo iptables -F
+sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 3306 -j ACCEPT
+sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 80 -j ACCEPT
+sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 443 -j ACCEPT
+sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 8080 -j ACCEPT
+sudo service iptables save
 #jenkins install, because chef cookbook failed!
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo -nv -nc
 sudo rpm --import http://pkg.jenkins-ci.org/redhat-stable/jenkins-ci.org.key

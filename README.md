@@ -7,4 +7,5 @@ Vagrant configuration for apache2, mysql and php on centOS.
 3. `git clone git@github.com:karlosmid/my_vagrant_lamp.git`  
 4. `cd my_vagrant_lamp`  
 5. `vagrant up`  
+5.0 wait for first time till download finishes
 6. `vagrant ssh`  

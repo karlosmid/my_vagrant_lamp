@@ -99,6 +99,8 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "java"
     chef.add_recipe "liquibase"
     chef.add_recipe "git"
+    chef.add_recipe "chef_gem"
+    chef.add_recipe "rvm::vagrant"
 
     chef.json = {
         "mysql" => {

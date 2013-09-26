@@ -13,6 +13,8 @@ sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 3306 -j ACC
 sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 80 -j ACCEPT
 sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 443 -j ACCEPT
 sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 8080 -j ACCEPT
+sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 5000 -j ACCEPT
+
 sudo service iptables save
 #jenkins install, because chef cookbook failed!
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo -nv -nc
@@ -47,3 +49,4 @@ sudo ln -sf /opt/liquibase-2.0.4/liquibase /usr/bin/liquibase
 echo 'you need to have mysql jdbc driver in my_vagrant_lamp'
 #sudo pear config-set auto_discover 1
 #sudo pear install pear.phpqatools.org/phpqatools pear.netpirates.net/phpDox
+sudo yum -y install ImageMagick-devel

@@ -50,3 +50,4 @@ echo 'you need to have mysql jdbc driver in my_vagrant_lamp'
 #sudo pear config-set auto_discover 1
 #sudo pear install pear.phpqatools.org/phpqatools pear.netpirates.net/phpDox
 sudo yum -y install ImageMagick-devel
+gem install chef

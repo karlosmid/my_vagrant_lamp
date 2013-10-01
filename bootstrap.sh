@@ -14,6 +14,7 @@ sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 80 -j ACCEP
 sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 443 -j ACCEPT
 sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 8080 -j ACCEPT
 sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 5000 -j ACCEPT
+sudo iptables -A INPUT -i eth0 -s 10.0.2.2 -p tcp --destination-port 5432 -j ACCEPT
 
 sudo service iptables save
 #jenkins install, because chef cookbook failed!

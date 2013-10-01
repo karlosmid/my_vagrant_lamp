@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 3306, host: 4569
   config.vm.network :forwarded_port, guest: 8080, host: 4570
   config.vm.network :forwarded_port, guest: 5000, host: 5000
-
+  config.vm.network :forwarded_port, guest: 5432, host: 5432
 
 
   # Create a private network, which allows host-only access to the machine
@@ -101,12 +101,18 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "git"
     chef.add_recipe "chef_gem"
     chef.add_recipe "rvm::vagrant"
+    chef.add_recipe "postgresql::server"
 
     chef.json = {
         "mysql" => {
           "server_root_password" => "iloverandompasswordsbutthiswilldo",
           "server_repl_password" => "iloverandompasswordsbutthiswilldo",
           "server_debian_password" => "iloverandompasswordsbutthiswilldo"
+        },
+        "postgresql" => {
+          "password" => {
+            "postgres" => "iloverandompasswordsbutthiswilldo"
+          }
         }
     }
     #  chef.add_role "web"

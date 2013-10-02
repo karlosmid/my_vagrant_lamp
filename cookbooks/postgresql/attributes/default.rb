@@ -201,8 +201,13 @@ when 'debian'
   default['postgresql']['pgdg']['release_apt_codename'] = node['lsb']['codename']
 end
 
-default['postgresql']['enable_pgdg_yum'] = false
-
+default['postgresql']['enable_pgdg_yum'] = true
+override['postgresql']['version'] = "9.2"
+override['postgresql']['dir'] = "/var/lib/pgsql/9.2/data"
+override['postgresql']['client']['packages'] = ["postgresql92", "postgresql92-devel"]
+override['postgresql']['server']['packages'] = ["postgresql92-server"]
+override['postgresql']['server']['service_name'] = "postgresql-9.2"
+override['postgresql']['contrib']['packages'] = ["postgresql92-contrib"]
 # The PostgreSQL RPM Building Project built repository RPMs for easy
 # access to the PGDG yum repositories. Links to RPMs for installation
 # on the supported version/platform combinations are listed at

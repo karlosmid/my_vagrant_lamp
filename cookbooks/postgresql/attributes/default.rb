@@ -190,7 +190,7 @@ default['postgresql']['pg_hba'] = [
   {:type => 'local', :db => 'all', :user => 'all', :addr => nil, :method => 'ident'},
   {:type => 'host', :db => 'all', :user => 'all', :addr => '127.0.0.1/32', :method => 'md5'},
   {:type => 'host', :db => 'all', :user => 'all', :addr => '::1/128', :method => 'md5'},
-  {:type => 'host', :db => 'all', :user => 'all', :addr => '10.0.2.2/24', :method => 'trust'}
+  {:type => 'host', :db => 'all', :user => 'all', :addr => '10.0.2.2/32', :method => 'trust'}
 
 ]
 
@@ -208,6 +208,7 @@ override['postgresql']['client']['packages'] = ["postgresql92", "postgresql92-de
 override['postgresql']['server']['packages'] = ["postgresql92-server"]
 override['postgresql']['server']['service_name'] = "postgresql-9.2"
 override['postgresql']['contrib']['packages'] = ["postgresql92-contrib"]
+override['postgresql']['config']['listen_addresses'] = '*'
 # The PostgreSQL RPM Building Project built repository RPMs for easy
 # access to the PGDG yum repositories. Links to RPMs for installation
 # on the supported version/platform combinations are listed at

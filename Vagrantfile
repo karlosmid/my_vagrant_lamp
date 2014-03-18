@@ -19,11 +19,6 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network :forwarded_port, guest: 80, host: 4567
-  config.vm.network :forwarded_port, guest: 443, host: 4568
-  config.vm.network :forwarded_port, guest: 3306, host: 4569
-  config.vm.network :forwarded_port, guest: 8080, host: 4570
-  config.vm.network :forwarded_port, guest: 5000, host: 5000
   config.vm.network :forwarded_port, guest: 5432, host: 5432
 
 
@@ -55,7 +50,7 @@ Vagrant.configure("2") do |config|
   #   vb.gui = true
   #
   #   # Use VBoxManage to customize the VM. For example to change memory:
-    vb.customize ["modifyvm", :id, "--memory", "1500"]
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
   #
   # View the documentation for the provider you're using for more
@@ -92,23 +87,10 @@ Vagrant.configure("2") do |config|
   #   chef.cookbooks_path = "../my-recipes/cookbooks"
   #   chef.roles_path = "../my-recipes/roles"
   #   chef.data_bags_path = "../my-recipes/data_bags"
-    chef.add_recipe "apache2"
-    chef.add_recipe "php"
-    chef.add_recipe "mysql"
     chef.add_recipe "nodejs"
-    chef.add_recipe "java"
-    chef.add_recipe "liquibase"
-    chef.add_recipe "git"
-    chef.add_recipe "chef_gem"
-    chef.add_recipe "rvm::vagrant"
     chef.add_recipe "postgresql::server"
 
     chef.json = {
-        "mysql" => {
-          "server_root_password" => "iloverandompasswordsbutthiswilldo",
-          "server_repl_password" => "iloverandompasswordsbutthiswilldo",
-          "server_debian_password" => "iloverandompasswordsbutthiswilldo"
-        },
         "postgresql" => {
           "password" => {
             "postgres" => "iloverandompasswordsbutthiswilldo"
